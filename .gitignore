@@ -1,0 +1,29 @@
+# Simulation-generated files
+sim/work/
+sim/*.log
+sim/*.wlf
+sim/*.ucdb
+sim/*.dbg
+sim/*.ini
+sim/transcript
+sim/coverage_report.txt
+sim/vsim.dbg/
+**/.DS_Store
+**/*~
+**/*.swp
+__pycache__/
+
+# IMPORTANT: do not ignore the user-provided screenshot under docs/images/.
+# QuestaSim generated files
+work/
+*.wlf
+*.vcd
+*.log
+*.ucdb
+vsim.dbg
+transcript
+
+# Temporary files
+*.swp
+*.swo
+*~

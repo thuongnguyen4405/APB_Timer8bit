@@ -1,0 +1,48 @@
+// Reconstructed reference implementation, NOT recovered original RTL.
+// Address 0: CCR (write control, read current count)
+// Address 1: CDR (write initial count, read last data written)
+// CCR 0x00 disables; CCR 0x01 counts up; CCR 0x03 counts down.
+module basic_counter (
+    input  logic       pclk,
+    input  logic       presetn,
+    input  logic       psel,
+    input  logic       penable,
+    input  logic       pwrite,
+    input  logic [1:0] paddr,
+    input  logic [7:0] pwdata,
+    output logic [7:0] prdata,
+    output logic       pready,
+    output logic       intr
+);
+    logic [7:0] ccr;
+    logic [7:0] cdr;
+    logic [7:0] count_value;
+    logic       apb_write;
+    logic       load_count;
+
+    assign apb_write = psel && penable && pwrite && pready;
+    assign load_count = apb_write && (paddr == 2'b01);
+    assign pready = 1'b1;
+
+    register u_register (
+        .pclk(pclk), .presetn(presetn), .write_en(apb_write),
+        .addr(paddr), .wdata(pwdata), .ccr(ccr), .cdr(cdr)
+    );
+
+    counter u_counter (
+        .pclk(pclk), .presetn(presetn), .enable(ccr[0]),
+        .direction_down(ccr[1]), .load(load_count),
+        .load_data(pwdata), .count(count_value)
+    );
+
+    always_comb begin
+        case (paddr)
+            2'b00: prdata = count_value;
+            2'b01: prdata = cdr;
+            default: prdata = 8'h00;
+        endcase
+    end
+
+    assign intr = ccr[0] && (ccr[1] ? (count_value == 8'h00)
+                                      : (count_value == 8'hff));
+endmodule

@@ -1,0 +1,9 @@
++incdir+../tb
++incdir+../testcase
+../rtl/register.vp
+../rtl/counter.vp
+../rtl/basic_counter.vp
+../tb/dut_interface.sv
+../tb/counter_pkg.sv
+../testcase/test_pkg.sv
+../tb/testbench.sv

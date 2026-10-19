@@ -1,0 +1,1 @@
+The image `functional_coverage_100.png` is cropped from a user-supplied QuestaSim GUI screenshot. It visually documents the original merged coverage result. No simulator report or UCDB file was fabricated.
