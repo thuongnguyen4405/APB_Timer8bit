@@ -9,6 +9,7 @@
 A lightweight, **non-UVM** SystemVerilog object-oriented verification environment for an APB-like 8-bit up/down counter. Test selection uses plusargs and polymorphism; constrained-random addresses exercise two registers; a monitor sends transactions to a coverage-collecting scoreboard.
 
 ### Verification architecture
+<img width="1147" height="447" alt="image" src="https://github.com/user-attachments/assets/738648e8-42f1-496f-b4aa-e7f7965e096d" />
 
 ```text
   Test class (base_test and derived scenarios)
