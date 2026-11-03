@@ -1,7 +1,18 @@
 
+# 8-bit APB Timer — SystemVerilog Design Verification
 
-#  Project  — 8-bit Timer DV 
+**Class-based, non-UVM verification of an APB-controlled 8-bit up/down timer.**
 
+![Language](https://img.shields.io/badge/Language-SystemVerilog-1f6feb)
+![Interface](https://img.shields.io/badge/Interface-AMBA%20APB-374151)
+![Verification](https://img.shields.io/badge/Verification-Class--based%20%2F%20Non--UVM-087f5b)
+![Test plan](https://img.shields.io/badge/Scenarios-24-6f42c1)
+
+## Overview
+
+This project verifies the register interface and functional behavior of an **8-bit timer peripheral controlled over an AMBA APB slave interface**. The verification environment is written in **SystemVerilog** and organized into reusable transaction, stimulus, driver, monitor, scoreboard, environment, and test classes.
+
+The work emphasizes a **specification-driven verification plan**, self-checking APB register accesses, directed corner-case tests, constrained-random stimulus, and repeatable regression runs. It is a **custom SystemVerilog testbench, not a UVM implementation**.
 Non-UVM SystemVerilog | 24 cases | one compile, many `+TESTNAME` runs.
 
 **Source**: ICTC Project 1 slides + `NguyenVanThuongVplan.xlsx`.
