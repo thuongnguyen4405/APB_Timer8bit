@@ -41,5 +41,10 @@ make run TESTNAME=register_reset_test SEED=1
 
 Compiler order from `sim/tb.f`: `dut_interface -> timer_pkg -> test_pkg -> testbench`.
 Read `docs/WHAT_CHANGED.md` before copying over hand-edited server files.
+<img width="1582" height="782" alt="image" src="https://github.com/user-attachments/assets/01608127-8ea5-4c87-a0a0-fed356e125e7" />
+figure 1. OVERALL COVERAGE 
+<img width="695" height="426" alt="image" src="https://github.com/user-attachments/assets/fd320e08-0a2b-43e4-a4a3-2205d44ccc8d" />
+figure 2. cg_test 
+
 
 
