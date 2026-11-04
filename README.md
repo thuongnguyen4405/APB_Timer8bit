@@ -29,6 +29,9 @@ Non-UVM SystemVerilog | 24 cases | one compile, many `+TESTNAME` runs.
 7. `testcase/base_test.sv`: common `build`, reset and finish check.
 8. `testcase/*_test.sv`: explicit scenarios matching 24 VPlan rows.
 9. `tb/testbench.sv`: **only place to read `+TESTNAME`**, select derived class.
+## BLOCK DIAGRAM 
+<img width="1012" height="498" alt="image" src="https://github.com/user-attachments/assets/d73b29f2-bb10-42dd-86ec-b5ba784ae0f5" />
+
 
 ## Running on ICTC server
 
