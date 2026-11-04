@@ -31,6 +31,8 @@ Non-UVM SystemVerilog | 24 cases | one compile, many `+TESTNAME` runs.
 9. `tb/testbench.sv`: **only place to read `+TESTNAME`**, select derived class.
 ## BLOCK DIAGRAM 
 <img width="1012" height="498" alt="image" src="https://github.com/user-attachments/assets/d73b29f2-bb10-42dd-86ec-b5ba784ae0f5" />
+## Environemnt testbench
+<img width="1185" height="467" alt="image" src="https://github.com/user-attachments/assets/75859469-6354-4c20-8aac-9bb5f4c2d1a0" />
 
 
 ## Running on ICTC server
