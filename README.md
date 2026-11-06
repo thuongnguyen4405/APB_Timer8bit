@@ -33,7 +33,31 @@ Non-UVM SystemVerilog | 24 cases | one compile, many `+TESTNAME` runs.
 <img width="1012" height="498" alt="image" src="https://github.com/user-attachments/assets/d73b29f2-bb10-42dd-86ec-b5ba784ae0f5" />
 ## Environemnt testbench
 <img width="1185" height="467" alt="image" src="https://github.com/user-attachments/assets/75859469-6354-4c20-8aac-9bb5f4c2d1a0" />
+### Clocks and reset
 
+| Signal / setting | Value | Purpose |
+| --- | --- | --- |
+| `pclk` | 50 MHz | APB register-access clock domain |
+| `ker_clk` | 200 MHz | Timer kernel clock feeding the divider |
+| `presetn` | Active-low | Reset input |
+| `clk_div = 2'b00` | 200 MHz | Divide by 1 |
+| `clk_div = 2'b01` | 100 MHz | Divide by 2 |
+| `clk_div = 2'b10` | 50 MHz | Divide by 4 |
+| `clk_div = 2'b11` | 25 MHz | Divide by 8 |
+
+The clock divider, load control, and count direction are configured while the timer is disabled, as described by the design specification.
+
+### Register map
+
+| Address | Register | Key fields / purpose |
+| --- | --- | --- |
+| `0x00` | **TCR** — Timer Configuration Register | `clk_div[4:3]`, `load[2]`, `count_down[1]`, `timer_en[0]` |
+| `0x01` | **TSR** — Timer Status Register | `underflow[1]`, `overflow[0]` — hardware-set, W1C |
+| `0x02` | **TDR** — Timer Data Register | `data[7:0]` — preload value |
+| `0x03` | **TIE** — Timer Interrupt Enable Register | `underflow_en[1]`, `overflow_en[0]` |
+| `0x04–0xFF` | Reserved | Writes ignored; reads return zero |
+
+**Important behavior:** `TSR.overflow` is raised on a `255 → 0` transition; `TSR.underflow` is raised on a `0 → 255` transition. Writing a `1` to the corresponding status bit clears it; writing `0` does not clear that bit.
 
 ## Running on ICTC server
 
