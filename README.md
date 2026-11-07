@@ -32,8 +32,8 @@ Non-UVM SystemVerilog | 24 cases | one compile, many `+TESTNAME` runs.
 ## BLOCK DIAGRAM 8-bit Timer
 <img width="1002" height="430" alt="image" src="https://github.com/user-attachments/assets/071050ff-680f-4b6c-b3a8-6fa208060c3f" />
 
-## Environemnt testbench
-<img width="1185" height="467" alt="image" src="https://github.com/user-attachments/assets/75859469-6354-4c20-8aac-9bb5f4c2d1a0" />
+## Environemnt testbench stucture
+<img width="941" height="357" alt="image" src="https://github.com/user-attachments/assets/e1bf7e0f-e1d3-44b4-b6d8-3b6715d40a58" />
 ### Clocks and reset
 
 | Signal / setting | Value | Purpose |
