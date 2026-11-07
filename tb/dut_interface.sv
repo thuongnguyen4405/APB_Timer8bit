@@ -1,4 +1,4 @@
-virtual interface dut_if;
+ interface dut_if;
   logic       ker_clk;   // 200 MHz timer kernel clock
   logic       pclk;      // 50 MHz APB clock
   logic       presetn;   // active-low reset
