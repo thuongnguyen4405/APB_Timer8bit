@@ -59,6 +59,9 @@ The clock divider, load control, and count direction are configured while the ti
 | `0x04–0xFF` | Reserved | Writes ignored; reads return zero |
 
 **Important behavior:** `TSR.overflow` is raised on a `255 → 0` transition; `TSR.underflow` is raised on a `0 → 255` transition. Writing a `1` to the corresponding status bit clears it; writing `0` does not clear that bit.
+## Setup VPLAN with 24 testcases:
+<img width="1882" height="830" alt="image" src="https://github.com/user-attachments/assets/aed1c6a1-c13b-4dec-b507-e0ae371bf6a2" />
+
 
 ## Running on ICTC server
 
