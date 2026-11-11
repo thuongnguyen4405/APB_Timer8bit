@@ -34,6 +34,18 @@ Non-UVM SystemVerilog | 24 cases | one compile, many `+TESTNAME` runs.
 
 ## Environemnt testbench stucture
 <img width="941" height="357" alt="image" src="https://github.com/user-attachments/assets/e1bf7e0f-e1d3-44b4-b6d8-3b6715d40a58" />
+**Component responsibilities**
+
+| Component | Responsibility |
+| --- | --- |
+| `packet` | Represents APB operations and transaction data |
+| `stimulus` | Produces/enqueues transactions for the driver |
+| `driver` | Drives APB SETUP / ACCESS phases and signals completion |
+| `monitor` | Samples completed bus transfers and passes observations to the scoreboard |
+| `scoreboard` | Maintains a shadow model of selected registers and compares readback values; directed tests check hardware-dependent events |
+| `environment` | Instantiates and connects components; provides common transaction tasks |
+| `base_test` / derived tests | Share setup/reset infrastructure and implement feature-specific scenarios |
+| `testbench` | Generates clocks, instantiates the DUT, and selects tests using `+TESTNAME` |
 ### Clocks and reset
 
 | Signal / setting | Value | Purpose |
