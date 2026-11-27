@@ -30,6 +30,8 @@ The timer is configured through an 8-bit APB address/data interface. The timer k
   <img src="https://github.com/user-attachments/assets/071050ff-680f-4b6c-b3a8-6fa208060c3f" alt="APB timer DUT block diagram" width="900" />
 </p>
 
+*Figure 1. APB timer DUT architecture.*
+
 ### Register map
 
 | Address | Register | Fields / behavior |
@@ -62,6 +64,8 @@ The table gives theoretical timing targets, not measured simulation results.
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e1bf7e0f-e1d3-44b4-b6d8-3b6715d40a58" alt="SystemVerilog verification environment architecture" width="850" />
 </p>
+
+*Figure 2. Class-based verification environment.*
 
 ```mermaid
 flowchart LR
@@ -108,10 +112,11 @@ The [original VPlan spreadsheet](docs/NguyenVanThuongVplan.xlsx) defines 24 scen
 | Interrupt | 5 | 1 | 6 | Overflow/underflow IRQ, masking, independence, polling |
 | **Total** | **21** | **3** | **24** | |
 
-<details>
-<summary>View original verification plan screenshot</summary>
+### Verification plan evidence
+
 <img src="https://github.com/user-attachments/assets/aed1c6a1-c13b-4dec-b507-e0ae371bf6a2" alt="Original verification plan spreadsheet" width="1000" />
-</details>
+
+*Figure 3. Original 24-scenario verification plan.*
 
 ### Example: clock divider verification
 
@@ -191,23 +196,31 @@ Logs are stored in `sim/log/`, with a CSV summary generated at `sim/log/regressi
 
 The following screenshots were included in the original project documentation. They are retained as historical evidence, not as proof that the current Git revision passes.
 
-<details>
-<summary>Register read/write — simulation screenshot</summary>
+### Register read/write test
+
 <img src="https://github.com/user-attachments/assets/11a8eea6-799f-4f25-99c4-be6766e5478c" alt="Register read/write test screenshot" width="800" />
-</details>
 
-<details>
-<summary>Register reset — simulation screenshot</summary>
+*Figure 4. Register read/write simulation evidence.*
+
+### Register reset test
+
 <img src="https://github.com/user-attachments/assets/f3d44f86-5a15-49df-95e0-9fc73fa30baa" alt="Register reset test screenshot" width="700" />
-</details>
 
-<details>
-<summary>Historical coverage screenshots</summary>
-<p>Overall coverage report</p>
+*Figure 5. Register reset simulation evidence.*
+
+### Coverage evidence
+
+**Overall coverage report**
+
 <img src="https://github.com/user-attachments/assets/01608127-8ea5-4c87-a0a0-fed356e125e7" alt="Historical overall coverage report" width="950" />
-<p>cg_test coverage report</p>
+
+*Figure 6. Overall coverage report.*
+
+**cg_test coverage report**
+
 <img src="https://github.com/user-attachments/assets/fd320e08-0a2b-43e4-a4a3-2205d44ccc8d" alt="Historical cg_test coverage report" width="700" />
-</details>
+
+*Figure 7. cg_test coverage report.*
 
 The original notes identify gaps related to reserved register fields/addresses. In the current source tree, functional covergroups and APB assertions are present under [future/](future/) but are not integrated into the active testbench file list. No current coverage percentage or closure claim is made.
 
